@@ -1,0 +1,47 @@
+<head>
+  <title>meteor-nested-documents</title>
+</head>
+
+<body>
+  <h1>Meteor Nested Documents</h1>
+
+  <p>Test appliation to display nested document. Where the nested document is an object and not an array.</p>
+  
+  {{> documents}}
+  
+</body>
+
+<template name="documents">
+  {{#each docs}}
+  	<!-- Display the document data -->
+  	{{> document}}
+  	<!-- Display the collection of tag data -->
+  	{{> tags}}
+  {{/each}}
+</template>
+
+<!-- Display the document data -->
+<template name="document">
+	<hr>
+	<h1>{{name}}</h1>
+	<p>{{desc}}</p>
+</template>
+
+<!-- Display the collection of tag data -->
+<template name="tags">
+	<small>Tag count: {{count}}</small>
+	{{#each tags}}		
+		<!-- The key under which the object is stored -->
+		<h2>Key: {{key}}</h2>
+
+		<!-- List all of the object fields -->
+		<ul>		
+			<li>
+				{{name}}
+			</li>
+			<li>
+				{{desc}}
+			</li>
+		</ul>
+	{{/each}}
+</template>
